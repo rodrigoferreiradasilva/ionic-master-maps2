@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-text color="primary">
+        <h2> Mapas AGM</h2>
+        <h4>(angula Google Maps)</h4>
+      </ion-text>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-button (click)="local()">
+      Local
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label>Latitude: {{posLat}}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Longitude: {{posLon}}</ion-label>
+  </ion-item>
+
+  <ion-card>
+    <agm-map [latitude]="posLat" [longitude]="posLon" [zoom]="18">
+      <agm-marker [latitude]="posLat" [longitude]="posLon">
+      </agm-marker>
+      <agm-circle [latitude]="posLat" [longitude]="posLon" [radius]="50" [fillColor]="'red'" [editable]="false"
+        [circleDraggable]="true">
+      </agm-circle>
+    </agm-map>
+  </ion-card>
+</ion-content>
